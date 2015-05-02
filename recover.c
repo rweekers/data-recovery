@@ -15,8 +15,14 @@
 
 int main(int argc, char* argv[])
 {
-    // hardcode filename
-    char* file = "card.raw";
+    // ensure proper usage
+    if (argc != 2) {
+        printf("Usage: ./recover <imagename>.\n");
+        return -1;
+    }
+
+    // open image
+    char* file = argv[1];
     
     // open the file
     FILE* raw = fopen(file, "r");
